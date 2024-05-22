@@ -66,11 +66,55 @@ namespace Task_4_Memory_Scramble_Game
 
         private void NewPic_Click(object? sender, EventArgs e)
         {
+            if (gameOver)
+            {
+                // dont register a click if the game is over
+                return;
+            }
 
+            if (firstChoice == null)
+            {
+                picA = sender as PictureBox;
+                if (picA.Tag != null && picA.Image == null)
+                {
+                    picA.Image = Image.FromFile("pics/" + (string)picA.Tag + ".png");
+                    firstChoice = (string)picA.Tag;
+                }
+            }
+            else if (secondChoice == null)
+            {
+                picB = sender as PictureBox;
+
+                if (picB.Tag != null && picB.Image == null)
+                {
+                    picB.Image = Image.FromFile("pics/" + (string)picB.Tag + ".png");
+                    secondChoice = (string)picB.Tag;
+                }
+            }
+            else
+            {
+                CheckPictures(picA, picB);
+            }
         }
 
         private void RestartGame()
         {
+            // randomise the original list
+            var randomList = numbers.OrderBy(x => Guid.NewGuid()).ToList();
+            // assign the random list to the original
+            numbers = randomList;
+
+            for (int i = 0; i < pictures.Count; i++)
+            {
+                pictures[i].Image = null;
+                pictures[i].Tag = numbers[i].ToString();
+            }
+            tries = 0;
+            lblStatus.Text = "Mismatched: " + tries + "times.";
+            lblTimtLeft.Text = "Time Left: " + totalTime;
+            gameOver = false;
+            GameTimer.Stop();
+            countDownTime = totalTime;
 
         }
         private void CheckPictures(PictureBox A, PictureBox B)
@@ -88,3 +132,5 @@ namespace Task_4_Memory_Scramble_Game
         }
     }
 }
+
+

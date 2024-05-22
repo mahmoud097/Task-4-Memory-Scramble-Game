@@ -29,30 +29,30 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            label1 = new Label();
-            lblTextLeft = new Label();
+            lblStatus = new Label();
+            lblTimtLeft = new Label();
             btnRestart = new Button();
             GameTimer = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
-            // label1
+            // lblStatus
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(334, 103);
-            label1.Name = "label1";
-            label1.Size = new Size(136, 20);
-            label1.TabIndex = 0;
-            label1.Text = "Match or MisMatch";
+            lblStatus.AutoSize = true;
+            lblStatus.Location = new Point(334, 103);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(136, 20);
+            lblStatus.TabIndex = 0;
+            lblStatus.Text = "Match or MisMatch";
             // 
-            // lblTextLeft
+            // lblTimtLeft
             // 
-            lblTextLeft.AutoSize = true;
-            lblTextLeft.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTextLeft.Location = new Point(327, 162);
-            lblTextLeft.Name = "lblTextLeft";
-            lblTextLeft.Size = new Size(143, 28);
-            lblTextLeft.TabIndex = 1;
-            lblTextLeft.Text = "Time Left : 30";
+            lblTimtLeft.AutoSize = true;
+            lblTimtLeft.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTimtLeft.Location = new Point(327, 162);
+            lblTimtLeft.Name = "lblTimtLeft";
+            lblTimtLeft.Size = new Size(143, 28);
+            lblTimtLeft.TabIndex = 1;
+            lblTimtLeft.Text = "Time Left : 30";
             // 
             // btnRestart
             // 
@@ -78,8 +78,8 @@
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(506, 367);
             Controls.Add(btnRestart);
-            Controls.Add(lblTextLeft);
-            Controls.Add(label1);
+            Controls.Add(lblTimtLeft);
+            Controls.Add(lblStatus);
             Name = "Form1";
             Text = "Memory-Scramble-Game";
             Load += Form1_Load;
@@ -89,8 +89,8 @@
 
         #endregion
 
-        private Label label1;
-        private Label lblTextLeft;
+        private Label lblStatus;
+        private Label lblTimtLeft;
         private Button btnRestart;
         private System.Windows.Forms.Timer GameTimer;
     }
